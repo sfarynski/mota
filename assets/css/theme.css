@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+
+}
+
+body {
+    margin-top: 80px;
+    background: #FFFFFF; 
+    color: #23282d; 
+    font-family: 'Space Mono', monospace;  
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* On applique un gris plus clair sur les paragraphes */
+p {
+    color: #313332;
+}
+
+/* HEADER MENU */
+
+#masthead{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 50px;
+    padding-right: 50px; 
+    width: 100%;
+    max-width: 1440px; 
+    height: 80px;
+    background-color: #ffffff;
+
+}
+
+#masthead{
+    position: fixed;
+    top: 0px;
+    z-index: 100;
+    -webkit-box-shadow: 0px 11px 12px -7px rgba(126, 126, 126, 0.226); 
+    box-shadow: 0px 11px 12px -7px rgba(126, 126, 126, 0.226);    
+}
+
+
+
+#primary-menu-list{
+    display: flex;
+}
+
+ul{
+    list-style-type: none;
+}
+ul li{
+    margin-left: 20px;
+}
+
+li.menu-item a {
+    color: #313332 !important;
+    display: inline-block;
+    text-align: center;
+    text-transform: uppercase;
+    text-decoration: none !important;
+}
+
+li.menu-item a:hover,
+li.menu-item.current-menu-item a {
+    color: black!important;
+    font-weight: bold;
+    
+}
+
+/* FOOTER MENU */
+#footer{
+    width: 100%;
+    max-width: 1440px;
+}
+
+#footer{
+    display: flex;
+    background-color: #ffffff;
+    border-top: 1px solid #000000;
+    text-align: center;
+    align-items: center;  
+    justify-content: center;
+    z-index: 100;
+    height: 40px;
+}
+
+.footer-menu-container ul{
+    display: flex;
+    text-align: center;
+    align-items: center;  
+    justify-content: center;
+}
+
+
+#footer a, #widget-area h2{
+    color: #000000; 
+    text-decoration: none;
+    font-weight: 400;
+    font-size: 16px;
+    text-align: center; 
+    text-transform: uppercase;
+    padding: 50px 0;
+}
+
+#footer a:hover {
+    font-weight: 700;
+}
+#footer ul li {
+    padding: 0 40px; 
+}
