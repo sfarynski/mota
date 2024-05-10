@@ -119,3 +119,17 @@ if ( ! function_exists( 'mota_theme_setup' ) ) {
 
 
 add_action( 'after_setup_theme', 'mota_theme_setup' );
+
+// Partie pour gerer le padding de l'affichage des photos  
+include get_template_directory() . '/includes/ajax.php';
+
+// Récupération de la valeur d'un champs personnalisé CPF
+// $variable = nom de la variable dont on veut récupérer la valeur
+// $field = nom du champs personnalisés
+function my_cpf_load_value( $variable,  $fields ) {
+    // Initialisation de la valeur à retourner
+    $return = "";
+    // Recherche de la clé
+    foreach ( $fields as $field) { $return= $field->$variable; }
+    return $return;
+}
