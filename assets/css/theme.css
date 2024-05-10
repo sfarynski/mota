@@ -113,3 +113,350 @@ li.menu-item.current-menu-item a {
 #footer ul li {
     padding: 0 40px; 
 }
+
+
+#front-page {
+    /* display: flex;  
+    margin: 0 auto 40px;*/
+    z-index: 10;
+}
+
+
+/* HERO */
+.hero-area .hero-thumbnail {
+    position: relative;
+    margin: auto;
+    align-items: center;
+    width: 100%;
+    max-height: 962px;   
+    max-width: 1440px; 
+    overflow: hidden;
+}
+
+.hero-area img {    
+    margin: auto;
+    /* object-fit: contain; */
+    object-fit: cover;
+    object-position: 50% 50%;
+    min-width: 100%;
+    height: auto;
+    max-height: 962px;
+}
+
+.hero-area .title-hero {    
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate3d(-50%, -50%, 0);
+    width: 100%;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 96px;
+    line-height: 142px;
+    font-style: italic;
+    color: transparent;
+    /* text-shadow: 0 0 2px rgb(255, 255, 255), 0 0 2px rgb(255, 255, 255); */
+    /* text-stroke: 2px rgb(255, 255, 255); */
+    -webkit-text-stroke: 2px rgb(255, 255, 255);
+}
+
+/* FILTRES */
+
+
+.filter-area {
+
+    width: 100%;
+    max-width: 1180px;
+    margin: 0 auto 0px;
+    padding: 30px 0;
+
+
+}
+
+.filter-form {
+    width: 100%;
+    display: flex;
+    justify-content:space-between; 
+    background-color: lightgreen;
+
+
+}    
+    
+.filter-area .filterleft {
+    display: flex;
+    gap: 20px;
+    width: 560px !important; 
+}
+    
+.filter-area .filterright  {
+    width: 275px !important;
+} 
+    
+.filter-area .filterleft,
+.filter-area .filterright  {
+    justify-content: center;
+} 
+
+.filter-area p,
+.filter-area option {    
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.filter-area p {
+    text-transform: uppercase;
+}
+
+.filter-area option {
+    text-transform: capitalize;
+}
+
+.filter-area select,
+.filter-area #date {
+    height: 43px !important;
+}
+
+.filter-area .select-filter {
+    width: 260px;
+    position: relative;
+    display: inline-block;
+    z-index: 1;
+}
+
+.filter-area .option-filter {
+    position: relative;
+    width: 100%;
+    height: 43px;
+    border: 1px solid #000000;
+    background-color: #ffffff;
+    border-radius: 0;
+    padding: 0 24px;
+}
+
+/* On cache la flèche d'origne des sélecteurs car non modifiable */
+.filter-area select { 
+    appearance: none !important;
+    cursor: pointer;
+    border-radius: 8px !important;
+    border: solid 1px !important;
+    text-transform: uppercase;
+}
+
+/* supprimer la fléche par défaut en IE 10 et 11 */
+.filter-area select::-ms-expand {
+    display: none; 
+}
+
+/* 
+.filter-area #filtre-format:active .arrowfilters,
+.filter-area #filtre-format:checked .arrowfilters {
+    transition: all 0.3s ease;
+    transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    -webkit-transform: rotate(180deg); 
+} */
+
+.filter-area .arrowfilters { 
+    background: url("../../assets/images/arrow-down.svg") center center / 100% 100% no-repeat;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    display: inline-block;
+    top: 14px;
+    right: 15px;
+    z-index: 2;
+}
+
+.filter-area select option{
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 18px;
+    text-transform: uppercase;
+}
+
+.select-open {
+    transition: all 0.3s ease;
+    transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    -webkit-transform: rotate(180deg); 
+}
+
+.select-close {
+    transition: all 0.3s ease;
+    transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg); 
+}
+
+.flexrow {
+    display: flex;
+    flex-direction: row;
+}
+
+.flexcolumn {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.container-news {
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto 20px;
+    /* gap: 20px; */
+    flex-wrap: wrap;
+    text-align: center;
+    justify-content: center;
+    background-color: lightblue;
+}
+
+.news-info {
+    position: relative;  
+    transition: all 0.5s ease-in-out;
+}
+
+.container-news .news-info {
+    width: 565px;
+    height: 495px;
+    margin: 0 10px 20px;
+}
+
+.news-info:hover .detail-photo,
+.news-info:hover .openLightbox,
+.news-info:hover .info-title,
+.news-info:hover .info-tax {
+    opacity: 1;
+}
+
+.detail-photo {
+    position: absolute;
+    cursor: pointer;
+    background: url("../../assets/images/eye-svgrepo-com 1.png") center center / 100% 100%;
+    background-repeat: no-repeat;
+    width: 46px;
+    height: 46px;
+    left: 50%;
+    top: 50%;
+    transform: translate3d(-50%, -50%, 0);
+    opacity: 0;
+    transition: all 1s ease-in-out;
+}
+
+.openLightbox {
+    position: absolute;
+    cursor: pointer;
+    background: url("../../assets/images/fullscreen.png") center center / 100% 100%;
+    background-repeat: no-repeat;
+    width: 40px;
+    height: 40px;
+    top: 20px;
+    right: 20px;
+    opacity: 0;
+    transition: all 1s ease-in-out;
+}
+
+.news-info .info-tax,
+.news-info .info-title {
+    position: absolute;
+    bottom: 10px;
+    color: #FFFFFF;
+}
+
+.news-info h2,
+.news-info h3,
+.news-info p {      
+    font-family: 'Poppins', sans-serif;
+    text-transform: uppercase;
+    font-size: 14px !important;
+    font-weight: 400;
+    line-height: 21px;  
+    opacity: 0;  
+    z-index: 5;
+    transition: all 0.5s ease-in-out;
+}
+
+.news-info .info-title {
+    left: 10px;
+}
+
+.news-info .info-tax {
+    right: 10px;
+}
+
+.news-info img {
+    overflow: hidden;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+.news-info img,
+.news img,
+.brightness {    
+    transition: all 0.5s ease-in-out;
+}
+
+.brightness::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0; 
+    background-color: #000000;
+    width: 100%;
+    height: 100%; 
+    opacity: 0;  
+    transition: all 0.5s ease-in-out;
+}
+
+.brightness:hover::before {
+    opacity: 0.5;
+}
+
+#pagination {
+    text-align: center; 
+    margin-bottom: 25px;
+}
+
+
+/* BOUTONS */
+.btn_load-more{       
+    position: relative;
+    background-color:#D8D8D8;
+    font-size: 12px;
+    border-radius: 1px;
+    display: inline-block;
+    text-align: center;
+    color:#000000;
+    font-weight: 400;
+    line-height: 20px;
+    padding: 8px 20px;
+    transition: all .3s ease-in-out;
+}
+
+.btn_load-more.hidden{
+    visibility: hidden;
+}
+
+.btn_load-more::after {
+    content: "";
+    position: absolute;
+    background: url("./assets/img/camera-svgrepo-com.svg") center center / 100% 100%;
+    background-repeat: no-repeat;    
+    top: 50%;
+    left: 50%;     
+    transform: translate3d(-50%, -50%, 0);
+    width: 16px;
+    height: 13px;
+    opacity: 0;
+    transition: all 0.5s ease-in-out;
+}
+
+.btn_load-more:hover {
+    background-color:#000000;
+}
+
+.btn_load-more:hover::after {
+    opacity: 1;
+}
