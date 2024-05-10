@@ -35,10 +35,6 @@ function mota_load() {
   $order = sanitize_text_field($_POST['order']);
   $paged = intval($_POST['paged']);
 
-  $filter_format = get_id_array_taxonomies( 'term_id','format' );
-  $filter_categorie = get_id_array_taxonomies( 'term_id','categorie' );
-  $filter_content = array_merge($filter_format,$filter_categorie);
-
   print_r( $paged );
   print_r( $order);
   print_r( $orderby);
@@ -159,10 +155,7 @@ function mota_load() {
     $orderby = sanitize_text_field($_POST['orderby']);
     $order = sanitize_text_field($_POST['order']);
     $paged = intval($_POST['paged']);
-  
-    $filter_format = get_id_array_taxonomies( 'term_id','format' );
-    $filter_categorie = get_id_array_taxonomies( 'term_id','categorie' );
-    $filter_content = array_merge($filter_format,$filter_categorie);
+
   
     print_r( $paged );
     print_r( $order);

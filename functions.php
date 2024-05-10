@@ -15,6 +15,10 @@ function theme_enqueue_styles(){
 add_action('wp_enqueue_scripts', 'motatheme_scripts');
 function motatheme_scripts() {
     wp_enqueue_script('motatheme', get_stylesheet_directory_uri() . '/assets/js/scripts.js', array('jquery'), '1.0.0', true);
+	if (is_front_page()) {
+        wp_enqueue_script( 'motatheme-scripts-filtres', get_theme_file_uri( '/assets/js/filtres.js' ), array('jquery'), filemtime(get_stylesheet_directory() . '/assets/js/filtres.js'), true );   
+  	
+	};  
   
 }
 
