@@ -8,7 +8,8 @@ function theme_enqueue_styles(){
 	// Chargement du css/theme.css pour nos personnalisations
 	wp_enqueue_style('mota-theme-main-style', get_stylesheet_directory_uri() . '/assets/css/theme.css', array(), filemtime(get_stylesheet_directory() . '/assets/css/theme.css'));
 	wp_enqueue_style('mota-theme-contact-modal-style', get_stylesheet_directory_uri() . '/assets/css/contact.css', array(), filemtime(get_stylesheet_directory() . '/assets/css/contact.css'));
-
+	wp_enqueue_style('mota-theme-single-photo-style', get_stylesheet_directory_uri() . '/assets/css/single-photo.css', array(), filemtime(get_stylesheet_directory() . '/assets/css/single-photo.css'));
+	
 }
 
 
@@ -18,8 +19,12 @@ function motatheme_scripts() {
 	if (is_front_page()) {
         wp_enqueue_script( 'motatheme-scripts-filtres', get_theme_file_uri( '/assets/js/filtres.js' ), array('jquery'), filemtime(get_stylesheet_directory() . '/assets/js/filtres.js'), true );   
 		wp_enqueue_script( 'motatheme-scripts-publication-ajax', get_theme_file_uri( '/assets/js/more-publication.js' ), array('jquery'), filemtime(get_stylesheet_directory() . '/assets/js/more-publication.js'), true );
-        
+        wp_enqueue_script( 'motatheme-scripts-lightbox-front', get_theme_file_uri( '/assets/js/lightbox-front-page.js' ), array('jquery'), filemtime(get_stylesheet_directory() . '/assets/js/lightbox-front-page.js'), true );
+	
 	};  
+	if (is_single()) {
+		wp_enqueue_script( 'motatheme-scripts-lightbox-ajax', get_theme_file_uri( '/assets/js/lightbox-ajax.js' ), array('jquery'), filemtime(get_stylesheet_directory() . '/assets/js/lightbox-ajax.js'), true );
+	}
   
 }
 
@@ -138,3 +143,18 @@ function my_cpf_load_value( $variable,  $fields ) {
     foreach ( $fields as $field) { $return= $field->$variable; }
     return $return;
 }
+
+ /**
+ * Shortcode pour ajouter un bouton contact
+ */
+function contact_btn() {
+
+	/** Code du bouton */
+	$string = '<a href="#" id="contact_btn" class="contact">Contact</a>';
+
+	/** On retourne le code  */
+	return $string;
+}
+
+/** On publie le shortcode  */
+add_shortcode('contact', 'contact_btn');

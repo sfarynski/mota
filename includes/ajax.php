@@ -114,7 +114,7 @@ function mota_load() {
     ?>
     <form>  
       <!-- Mise à disposition de JS du tableau contenant toutes les données de la requette et le nombre -->                 
-      <input type="hidden" name="total_posts" id="total_posts" value="<?php print_r( $query_more->posts); ?>">     
+      <input type="hidden" name="total_posts" id="total_posts" value="<?php print_r( $total_posts); ?>">     
       <input type='hidden' name='max_pages' id='max_pages' value='<?php echo $max_pages; ?>'>
       <input type="hidden" name="nb_total_posts" id="nb_total_posts" value="<?php  echo $nb_total_posts; ?>">
        <!-- Mise à jour par ajax.php -->                                    
@@ -156,9 +156,9 @@ function mota_load() {
     $paged = intval($_POST['paged']);
 
   
-    //print_r( $paged );
-    //print_r( $order);
-    //print_r( $orderby);
+    print_r( $paged );
+    print_r( $order);
+    print_r( $orderby);
   
     // Configuration du filtre
     $custom_args = array(
@@ -196,23 +196,11 @@ function mota_load() {
       $query_more = new WP_Query( $custom_args ); 
       set_filtered_more_posts($query_more->posts);
   
-      /*if (is_single()){
-        $nb_total_posts  = $query_more->found_posts;
-        echo "appel de mota_load dans single: avec  ".$nb_total_posts." posts";
-        //print_r($query_more->posts);
-        return $query_more;
-      }*/
-  
-      $total_posts = get_posts( $custom_args );
-      // echo $query->found_posts . " articles trouvés"; 
-      $nb_total_posts  = $query_more->found_posts;
+      //$total_posts = get_posts( $custom_args );
+      echo $query_more->found_posts . " articles trouvés". "\n"; 
+      $nb_total_posts  = $query_more->found_posts*$paged;
+      echo $query_more->found_posts . " nombre total de posts"; 
       $max_pages = $query_more->max_num_pages;   
-  
-      $custom_args2 = array_replace($custom_args, array( 'posts_per_page' => -1, 'nopaging' => true,));
-      $total_posts = get_posts( $custom_args2 );
-      //print_r( $total_posts);
-      $nb_total_posts = count($total_posts);
-      //print_r( $nb_total_posts);
   
       $response = '';
   

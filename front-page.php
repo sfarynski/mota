@@ -52,9 +52,10 @@
             // Création du filtre pour la lightbox pour créer un tableau 
             // avec la liste de toutes les photos correspondantes aux filtres
             $custom_args2 = array_replace($custom_args, array( 'posts_per_page' => -1, 'nopaging' => true,));
-            $total_posts = get_posts( $custom_args );
+            $total_posts = get_posts( $custom_args2 );
             //print_r( $total_posts);
-            $nb_total_posts = count(get_posts( $custom_args2 ));          
+            $nb_total_posts = count($total_posts);   
+            print_r( $nb_total_posts);       
                       
             ?>
             <!-- On vérifie si le résultat de la requête contient des articles -->
@@ -100,11 +101,12 @@
                 <input type="hidden" name="order" id="order" value="<?php echo $order; ?>">
                 <input type="hidden" name="posts_per_page" id="posts_per_page" value="<?php echo get_option( 'posts_per_page'); ?>">
                 <input type="hidden" name="currentPage" id="currentPage" value="<?php  echo $paged; ?>">
+                <input type="hidden" name="displayed_posts" id="displayed_posts" value="<?php  echo get_option( 'posts_per_page'); ?>">
                 <input type="hidden" name="ajaxurl" id='ajaxurl' value="<?php echo site_url() ?>/wp-admin/admin-ajax.php">
                 <!-- c’est un jeton de sécurité, pour s’assurer que la requête provient bien de ce site, et pas d’un autre -->
                 <input type="hidden" name="nonce" id='nonce' value="<?php echo wp_create_nonce( 'mota_nonce' ); ?>" > 
                 <!-- On cache le bouton s'il n'y a pas plus d'1 page -->
-                <?php if ($max_pages > 1 && $nb_total_posts>get_option( 'posts_per_page')): ?>
+                <?php if ($max_pages > 1): ?>
                     <button class="btn_load-more" id="load-more">Charger plus</button>
                     <span class="camera"></span>
                 <?php endif ?>
