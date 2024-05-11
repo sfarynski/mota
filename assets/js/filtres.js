@@ -48,10 +48,11 @@ document.addEventListener("DOMContentLoaded", function () {
           e.preventDefault();
 
           let max_pages=0;
-          if (document.getElementById("filtered_max_pages") !== null) {
-            max_pages = document.getElementById("filtered_max_pages").value;
+          if (document.getElementById("max_pages") !== null) {
+            max_pages = document.getElementById("max_pages").value;
           }
   
+          document.getElementById("currentPage").value = currentPage;
 
           // Récupération des valeurs sélectionnées
           let targetName = e.target.name;
@@ -83,7 +84,7 @@ document.addEventListener("DOMContentLoaded", function () {
               action: "mota_load",
               categorie_id: categorie_id,
               nonce: nonce,
-              paged: 1,
+              paged: currentPage,
               format_id: format_id,
               orderby: orderby,
               order: order,

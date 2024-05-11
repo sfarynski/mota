@@ -12,15 +12,10 @@
 <?php
     // Récupérer la taxonomie CPF actuelle
     $term = get_queried_object();                                              
-
-    //$taxonomy_names = get_post_taxonomies(get_the_ID());
-    //print_r( $taxonomy_names );
     // Récupération du nom de la catégorie 
     $taxonomy_values=get_the_terms( $post->ID, 'categorie' );
     $categorie  = my_cpf_load_value('name', $taxonomy_values); 
-    //print_r( $taxonomy_values);
-    //print_r(get_the_ID());
-    //print_r(get_post_meta( get_the_ID(), 'type' ));
+
 ?>
 
 <!-- Génération du nombre de photo en fonction de l'option dans WordPress -->

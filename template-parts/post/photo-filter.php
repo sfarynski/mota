@@ -50,8 +50,8 @@
                     <span class="date-down arrowfilters arrowfilters-arrow-down select-close"></span>
                     <select class="option-filter" name="date" id="date">
                         <option value="">Trier par</option>
-                        <option value="desc" <?php if($order === "desc"): ?>selected<?php endif; ?>>nouveauté</option>
-                        <option value="asc" <?php if($order === "asc" ): ?>selected<?php endif; ?>>Les plus anciens</option>
+                        <option value="desc">nouveauté</option>
+                        <option value="asc">Les plus anciens</option>
                     </select>
                 </div>
         </div>        

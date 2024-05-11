@@ -1,37 +1,21 @@
 <?php get_header(); ?>
 <div id="front-page"> 
-    <section id="content">    
-        <!-- Chargement du hero -->
-        <?php get_template_part( 'template-parts/header/hero' ); ?>
-		<!-- Chargement des filtres -->
-       <?php get_template_part( 'template-parts/post/photo-filter' ); ?>
+    <section id="content"> 
+    <?php  
+        // Initialisation de variable pour les filtres de requettes Query
+        $order = "ASC";
+        $orderby = "date";   
+        //Chargement du hero -->
+        get_template_part( 'template-parts/header/hero' ); 
+		//Chargement des filtres -->
+        get_template_part( 'template-parts/post/photo-filter' ); ?>
 	   
 
 		<?php  
-        // Initialisation de variable pour les filtres de requettes Query
-        $order = "ASC";
-        $orderby = "date";
-        //$filter_format = get_id_array_taxonomies( 'term_id','format' );
-        //$filter_categorie = get_id_array_taxonomies( 'term_id','categorie' );
-        //$filter_content = array_merge($filter_format,$filter_categorie);
-
-        
-		
         // Initialisation du filtre d'affichage des posts
         $paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
-        // Récupérer la taxonomie actuelle
-        //$term = get_queried_object();
-		//var_dump($term);
-        //print_r(get_post_taxonomies('categorie'));
         $tax_categorie=get_categories(array('taxonomy' => 'categorie')); 
-        //print_r($tax_categorie);
 
-        //$categorie_id  =  get_post_meta( 25, '', false );
-		//echo "contanu de $categorie_id";var_dump($categorie_id);
-        //$format_id  =  get_post_meta( get_the_ID(), 'format', true );
-		//echo "contanu de $format_id";var_dump($format_id);
-        // $categorie_name  = my_acf_load_value('name', get_field('categorie-acf'));
-        // $format_name = my_acf_load_value('name', get_field('format-acf'));
         $custom_args = array(
 			'post_type' => 'photographie',
 			// 'posts_per_page' => 8,

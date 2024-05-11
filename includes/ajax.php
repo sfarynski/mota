@@ -32,7 +32,7 @@ function mota_load() {
   $categorie_id = isset($_POST['categorie_id']) ? $_POST['categorie_id'] : '';
   $format_id = isset($_POST['format_id']) ? $_POST['format_id'] : '';
   $orderby = sanitize_text_field($_POST['orderby']);
-  $order = sanitize_text_field($_POST['order']);
+  $order = empty(sanitize_text_field($_POST['order'])) ? 'asc' : sanitize_text_field($_POST['order']);
   $paged = intval($_POST['paged']);
 
   print_r( $paged );
@@ -97,7 +97,6 @@ function mota_load() {
       return $query_more;
     }*/
 
-    $total_posts = get_posts( $custom_args );
      
     $nb_total_posts  = $query_more->found_posts;
     $max_pages = $query_more->max_num_pages;  
@@ -115,8 +114,8 @@ function mota_load() {
     ?>
     <form>  
       <!-- Mise à disposition de JS du tableau contenant toutes les données de la requette et le nombre -->                 
-      <input type="hidden" name="total_posts" id="total_posts" value="<?php print_r( $total_posts); ?>">     
-      <input type='hidden' name='filtered_max_pages' id='filtered_max_pages' value='<?php echo $max_pages; ?>'>
+      <input type="hidden" name="total_posts" id="total_posts" value="<?php print_r( $query_more->posts); ?>">     
+      <input type='hidden' name='max_pages' id='max_pages' value='<?php echo $max_pages; ?>'>
       <input type="hidden" name="nb_total_posts" id="nb_total_posts" value="<?php  echo $nb_total_posts; ?>">
        <!-- Mise à jour par ajax.php -->                                    
     </form>  
@@ -157,9 +156,9 @@ function mota_load() {
     $paged = intval($_POST['paged']);
 
   
-    print_r( $paged );
-    print_r( $order);
-    print_r( $orderby);
+    //print_r( $paged );
+    //print_r( $order);
+    //print_r( $orderby);
   
     // Configuration du filtre
     $custom_args = array(
@@ -173,8 +172,8 @@ function mota_load() {
   
       // Ajouter la taxonomie "categorie" si elle est sélectionnée
       if (!empty($categorie_id)) {
-        echo " categorie:";
-        print_r( $categorie_id );
+        //echo " categorie:";
+        //print_r( $categorie_id );
         $custom_args['tax_query'][] = array(
           'taxonomy' => 'categorie',
           'field' => 'term_id',
@@ -185,8 +184,8 @@ function mota_load() {
   
       // Ajouter la taxonomie "format" si elle est sélectionnée
       if (!empty($format_id)) {
-        echo " format:";
-        print_r( $format_id );
+        //echo " format:";
+        //print_r( $format_id );
         $custom_args['tax_query'][] = array(
             'taxonomy' => 'format',
             'field' => 'term_id',
