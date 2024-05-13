@@ -28,34 +28,11 @@
 		}
 		return $index;
 	 }
-	/*include_once get_template_directory() . '/includes/utils.php';
-	//session_start(); // DO CALL ON TOP OF BOTH PAGES
-	$filter_format = get_id_array_taxonomies( 'term_id','format' );
-    $filter_categorie = get_id_array_taxonomies( 'term_id','categorie' );
-	$filter_content= array_merge($filter_format,$filter_categorie);
-	$exlude_id=get_excluded_id_terms();
-	print_r($exlude_id);
-	if(!empty($exlude_id['categorie'])){
-		$pos_filter = array_search($exlude_id['categorie'],$filter_content);
-		echo "id filtre categorie: ";
-
-		print_r($pos_filter);
-		unset($filter_content[$pos_filter]);
-	}
-	if(!empty($exlude_id['format'])){
-		$pos_filter = array_search($exlude_id['format'],$filter_content);
-		echo "id filtre format: ";
-
-		print_r($pos_filter);
-		unset($filter_content[$pos_filter]);
-	}
-	$exlude_id=array_merge(array(), $filter_content);
-	print_r($filter_content);*/
 	include_once get_template_directory() . '/includes/utils.php';
 	$posts_array=get_filtered_posts();
-	print_r($posts_array);
+	//print_r($posts_array);
 	$this_index=search_post_index($posts_array);
-	echo "index du post: ".$post->ID."dans tableau: ".$this_index;
+	//echo "index du post: ".$post->ID."dans tableau: ".$this_index;
 	$prev_id = $posts_array[ $this_index - 1 ];
 	$next_id = $posts_array[ $this_index + 1 ];
 ?>
@@ -120,10 +97,10 @@ if( have_posts() ) : while( have_posts() ) : the_post(); ?>
 				<?php 
 					get_template_part ( 'template-parts/post/photo-common');
 				 ?>
+			</div>
 			<button class="btn btn-all-photos" type="button">
 				<a href="<?php echo home_url( '/' ); ?>" aria-label="Page d'accueil de Nathalie Mota">Toutes les photos</a>
 			</button>
-			</div>
 		</div>
 	</section>
 <?php endwhile; endif; ?>

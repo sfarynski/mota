@@ -46,11 +46,6 @@ document.addEventListener("DOMContentLoaded", function () {
         $(".option-filter").change(function (e) {
           // Empêcher l'envoi classique du formulaire
           e.preventDefault();
-
-          let max_pages=0;
-          if (document.getElementById("max_pages") !== null) {
-            max_pages = document.getElementById("max_pages").value;
-          }
   
           document.getElementById("currentPage").value = currentPage;
 
@@ -94,7 +89,9 @@ document.addEventListener("DOMContentLoaded", function () {
               $(".publication-list").empty().append(res);
               
                // Récupération de la valeur du nouveau nombre de pages
-              let nb_total_posts = 0;
+               if (document.getElementById("max_pages") !== null) {
+                 max_pages = document.getElementById("max_pages").value;
+               }
 
               // Affiche ou cache le bouton "Charger plus" en fonction du nombre de pages
               console.log("currentPage: "+currentPage+" max_pages: "+max_pages);

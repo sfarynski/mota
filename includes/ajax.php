@@ -197,9 +197,8 @@ function mota_load() {
       set_filtered_more_posts($query_more->posts);
   
       //$total_posts = get_posts( $custom_args );
-      echo $query_more->found_posts . " articles trouvés". "\n"; 
       $nb_total_posts  = $query_more->found_posts*$paged;
-      echo $query_more->found_posts . " nombre total de posts"; 
+      //echo $query_more->found_posts . " nombre total de posts"; 
       $max_pages = $query_more->max_num_pages;   
   
       $response = '';
