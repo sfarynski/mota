@@ -15,7 +15,7 @@
 ?>
 <?php the_post_thumbnail('lightbox'); ?>
 <div class="lightbox__info flexrow">
-     <p class="photo-ref"><?php echo get_the_ID(); ?></p>
+     <p class="photo-ref"><?php echo $ref; ?></p>
     <p class="photo-cat"><?php echo $categorie; ?></p>
 </div> 
 
