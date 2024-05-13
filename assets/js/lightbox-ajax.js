@@ -65,7 +65,6 @@ document.addEventListener("DOMContentLoaded", function () {
     
           // On extrait les informations de la photo et on les regroupe
           arrayFinish.push(arrayIntial.slice(`${start}`, `${end}`));
-          console.log("contenu de arrayfinish: "+arrayFinish+"\n");
     
           // On retire ces éléments pour le filtrage suivant
           arrayIntial = arrayIntial.slice(`${next}`, -1);

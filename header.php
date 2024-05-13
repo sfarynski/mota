@@ -60,6 +60,19 @@ $wrapper_classes .= has_nav_menu( 'primary' ) ? ' has-menu' : '';
 			)
 		);
 		?>
+		<button id="modal__burger" class="btn-modal" aria-label="Menu pour la version portable">
+			<span class="line"></span>
+			<span class="line"></span>
+			<span class="line"></span>
+		</button>
+		
+		<div id="modal__content" class="modal__content">           
+			<?php 				
+			wp_nav_menu(array(	'theme_location' => 'primary',
+								'container_class' => 'primary-menu-container',
+		)); 
+			?>
+		</div>
 	</nav><!-- #site-navigation -->
 	<?php
 endif;

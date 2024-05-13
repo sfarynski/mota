@@ -114,13 +114,115 @@ li.menu-item.current-menu-item a {
     padding: 0 40px; 
 }
 
+/* Menu mobile */
+.btn-modal {
+    opacity: 0;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    background-color: transparent;
+    border: #ffffff;
+    gap: 8px;
+    top: -100px;
+    width: 28px;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    right: 3em;
+    cursor: pointer;  
+  }
+  
+.btn-modal .line {
+    opacity: 1;
+    /* opacity: 0; */
+    height: 1.7px;
+    background-color: #000;
+    display: block;
+    width: 100%;
+    margin: 0;
+    transition: all .3s ease-in-out;
+  }
+  
+  /* Création du bouton pour fermer */
+#modal__burger:hover .line:nth-child(2),
+.btn-modal.close .line:nth-child(2) {
+    opacity: 0;
+  }
+
+.btn-modal.close .line:first-child {
+    transform: rotate(45deg) translate3d(8px, 6px, 0);
+  }
+
+.btn-modal.close  span.line:last-child {
+    transform: rotate(-45deg) translate3d(8px, -6px, 0);
+  }
+
+.modal__content {
+    display: flex;  
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    right: 0;
+    opacity: 0;
+    top: 80px;
+    width: 100vw;
+    width: 100vh;
+    background: #E00000; 
+    visibility: hidden;
+    transition: all .3s ease-in-out;
+}
+
+#modal__content .primary-menu-container{
+
+    margin: auto;
+    width: 100vw;
+}
+
+#modal__content .primary-menu-container ul{  
+    text-align: center;
+    height: 100%;
+    /* align-items: center */
+}
+
+
+
+#modal__content .primary-menu-container li {   
+    height: 80px;
+}
+
+#modal__content .primary-menu-container li a {
+    color: white !important;
+    font-size: 44px;
+}
+
+.animate-modal {
+    opacity: 1;
+    /* width: 100vw; */
+    height: 100vh;  
+    animation: move-down 2s 300ms both;
+}
+
+/* Pour faire apparaitre la moadle en descendant et avec agmentatation de l'opacité */
+@keyframes move-down {
+    0% {
+      transform: translateY(-400px);
+      opacity: 0;
+    }  
+    100% {
+      transform: translateY(0);
+      visibility: visible;
+    }
+  }
+
 
 #front-page {
     /* display: flex;  
     margin: 0 auto 40px;*/
     z-index: 10;
 }
-
 
 /* HERO */
 .hero-area .hero-thumbnail {
@@ -177,8 +279,6 @@ li.menu-item.current-menu-item a {
     width: 100%;
     display: flex;
     justify-content:space-between; 
-    background-color: lightgreen;
-
 
 }    
     
@@ -309,7 +409,6 @@ li.menu-item.current-menu-item a {
     flex-wrap: wrap;
     text-align: center;
     justify-content: center;
-    background-color: lightblue;
 }
 
 .news-info {
@@ -632,4 +731,144 @@ Theme URI: https://motaphoto.com
 }
 .lightbox__loader.hidden{
     visibility: hidden;
+}
+
+
+
+/*  **********************************  */
+/*    Media query : max-width: 768px    */
+/*  **********************************  */
+@media all and (max-width: 768px) {
+    .container-header img {
+    width: 138px;
+    }
+
+    #site-navigation .primary-menu-container {
+        opacity: 0;
+    }
+
+    #site-navigation .primary-menu-container a{
+        display: inline-block;
+        transform: translateY(-200px);
+        height: 0;
+    }
+
+    #modal__content .primary-menu-container {
+        opacity: 1;
+        height: auto;
+    }
+    
+    #modal__content .primary-menu-container a{
+        display: inline-block;
+        transform: translateY(0);
+        height: 0;
+    }
+    
+    #modal__burger {
+        opacity: 1;
+        top: 0;
+    }
+
+    #site-navigation .primary-menu-container,
+    #site-navigation #modal__burger {
+        margin-right: 0;
+    }
+    
+    .hero-area img {   
+        max-height: 500px;
+    }
+    
+    .hero-area .title-hero {
+        font-size: 40px;
+        line-height: 80px;
+    }
+
+    #footer {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+    }
+
+    .footer-menu-container ul {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #widget-area h2{
+        padding: 0px;
+    }
+    #footer a,
+    #footer aside {
+        padding: 10px 0;
+    }   
+    #block-7{
+        height: 23.5px;
+    }
+
+    #pagination {
+    text-align: center; 
+    margin-bottom: 25px;
+    }
+
+    .container-news .news-info {
+        width: 293px;
+        height: 260px;
+    }  
+
+    .news-info h2,
+    .news-info h3,
+    .news-info p {      
+        font-size: 12px !important;
+        line-height: 18px;  
+    }
+
+    .filter-area{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .filter-form{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .filter-form .filterleft{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .filter-form .filterright{
+        margin-top: 20px;
+        margin-left: 10px;
+    }
+
+
+}
+
+/*  **********************************  */
+/*    Media query : max-width: 580px    */
+/*  **********************************  */
+@media all and (max-width: 580px) {
+    .lightbox__prev, 
+    .lightbox__next {
+        width: 25px;
+        height: 100%;
+        z-index: 11;
+        top: 0%;
+      }
+    
+    .lightbox__next {
+        right: 0px;
+    }
+
+    .lightbox__prev {
+        left: 0px;
+    }
+
+    .lightbox .lightbox__container h2 { 
+    font-size: 12px;
+    padding-top: 15px;
+}
 }

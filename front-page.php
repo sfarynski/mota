@@ -55,7 +55,7 @@
             $total_posts = get_posts( $custom_args2 );
             //print_r( $total_posts);
             $nb_total_posts = count($total_posts);   
-            print_r( $nb_total_posts);       
+            //print_r( $nb_total_posts);       
                       
             ?>
             <!-- On vérifie si le résultat de la requête contient des articles -->

@@ -35,9 +35,9 @@ function mota_load() {
   $order = empty(sanitize_text_field($_POST['order'])) ? 'asc' : sanitize_text_field($_POST['order']);
   $paged = intval($_POST['paged']);
 
-  print_r( $paged );
-  print_r( $order);
-  print_r( $orderby);
+  //print_r( $paged );
+  //print_r( $order);
+  //print_r( $orderby);
 
   // Configuration du filtre
   $custom_args = array(
@@ -66,8 +66,8 @@ function mota_load() {
 
     // Ajouter la taxonomie "categorie" si elle est sélectionnée
     if (!empty($categorie_id)) {
-      echo " categorie:";
-      print_r( $categorie_id );
+      //echo " categorie:";
+      //print_r( $categorie_id );
       $custom_args['tax_query'][] = array(
         'taxonomy' => 'categorie',
         'field' => 'term_id',
@@ -78,8 +78,8 @@ function mota_load() {
 
     // Ajouter la taxonomie "format" si elle est sélectionnée
     if (!empty($format_id)) {
-      echo " format:";
-      print_r( $format_id );
+      //echo " format:";
+      //print_r( $format_id );
       $custom_args['tax_query'][] = array(
           'taxonomy' => 'format',
           'field' => 'term_id',
@@ -100,7 +100,7 @@ function mota_load() {
      
     $nb_total_posts  = $query_more->found_posts;
     $max_pages = $query_more->max_num_pages;  
-    echo " articles trouvés: ".$nb_total_posts. " et  un nombre de pages: ".$max_pages; 
+    //echo " articles trouvés: ".$nb_total_posts. " et  un nombre de pages: ".$max_pages; 
 
     $custom_args2 = array_replace($custom_args, array( 'posts_per_page' => -1, 'nopaging' => true,));
     $total_posts = get_posts( $custom_args2 );
