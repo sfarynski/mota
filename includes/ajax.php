@@ -156,9 +156,9 @@ function mota_load() {
     $paged = intval($_POST['paged']);
 
   
-    print_r( $paged );
-    print_r( $order);
-    print_r( $orderby);
+    //print_r( $paged );
+    //print_r( $order);
+    //print_r( $orderby);
   
     // Configuration du filtre
     $custom_args = array(
