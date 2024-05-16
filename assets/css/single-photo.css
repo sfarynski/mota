@@ -271,7 +271,6 @@
     }
     
     .news-info img {
-        position: absolute;
         top: 0;
         bottom: 0;
         overflow: hidden;

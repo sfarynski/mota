@@ -46,12 +46,8 @@ if( have_posts() ) : while( have_posts() ) : the_post(); ?>
 			<p>Cette photo vous intéresse ? <button class="btn" type="button"><?php echo do_shortcode('[contact]'); ?></button></p>
 			<div class="site__navigation flexrow">				
 				<div class="site__navigation__prev">
-				<?php
-					//previous_post_link( 'Article precendant<br>%link', '&#10229;', false, $filter_content, 'format' );
-					//$prev_post = get_previous_post();						
+				<?php				
 					if(! empty( $prev_id ) ) {
-						//$prev_title = strip_tags(str_replace('"', '', $prev_post->post_title));
-						//$prev_post_id = $prev_post->ID;
 						echo '<a rel="prev" href="' . get_permalink($prev_id) . '" title="' . $prev_title. '" class="previous_post">';
 						
 						if (has_post_thumbnail($prev_id)){
@@ -68,13 +64,8 @@ if( have_posts() ) : while( have_posts() ) : the_post(); ?>
 					?>
 				</div>
 				<div class="site__navigation__next">
-					<!-- next_post_link( '%link', '%title', false );  -->
 					<?php
-						//next_post_link( 'Article suivant<br>%link', '&#10230;', false, $filter_content, 'format' ); 
-						//$next_post = get_next_post();
 						if(! empty( $next_id )) {
-							//$next_title = strip_tags(str_replace('"', '', $next_post->post_title));
-							//$next_post_id = $next_post->ID;
 							echo  '<a rel="next" href="' . get_permalink($next_id) . '" title="' . $next_title. '" class="next_post">';
 							if (has_post_thumbnail($next_id)){
 							?>
